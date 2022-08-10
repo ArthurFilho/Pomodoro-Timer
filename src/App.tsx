@@ -1,11 +1,17 @@
+import { Button } from './components/Button'
 
-import './App.css'
 
 export function App() {
  return (
-  <div>
+  <>
 
-  </div>
+   <Button variant='primary'/>
+   <Button variant='secondary' />
+   <Button variant='sucess' />
+   <Button variant='danger' />
+   <Button/>
+
+  </>
  )
 }
 
