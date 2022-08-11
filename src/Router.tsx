@@ -7,7 +7,7 @@ import { DefaultLayout } from './layouts/DefaultLayout'
 export function Router() {
   return (
     <Routes>
-      <Route panth="/" element={<DefaultLayout />}>
+      <Route path="/" element={<DefaultLayout />}>
         <Route path="/" element={<Home />} />
         <Route path="/history" element={<History />} />
       </Route>
