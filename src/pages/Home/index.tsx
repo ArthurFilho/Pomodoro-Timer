@@ -1,4 +1,4 @@
-import { HandPalm, Play } from 'phosphor-react'
+import { HandPalm, Pause, Play } from 'phosphor-react'
 import { FormProvider, useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 import * as zod from 'zod'
@@ -8,6 +8,9 @@ import {
   HomeContainer,
   StartCountdownButton,
   StopCountdownButton,
+  PauseCountdownButton,
+  ButtonsCointainer,
+  UnPauseCountdownButton,
 } from './style'
 import { NewCycleForm } from './components/NewCycleForm'
 import { Countdown } from './components/CountDown'
@@ -24,8 +27,13 @@ const newCycleFormValidationSchema = zod.object({
 type NewCycleFormData = zod.infer<typeof newCycleFormValidationSchema>
 
 export function Home() {
-  const { activeCycle, createNewCycle, interruptCurrentCycle } =
-    useContext(CyclesContext)
+  const {
+    activeCycle,
+    createNewCycle,
+    interruptCurrentCycle,
+    PauseCurrentCycle,
+    StartCurrentCycle,
+  } = useContext(CyclesContext)
 
   const newCycleForm = useForm<NewCycleFormData>({
     resolver: zodResolver(newCycleFormValidationSchema),
@@ -54,10 +62,24 @@ export function Home() {
         <Countdown />
 
         {activeCycle ? (
-          <StopCountdownButton onClick={interruptCurrentCycle} type="button">
-            <HandPalm size={24} />
-            Interromper
-          </StopCountdownButton>
+          <ButtonsCointainer>
+            <StopCountdownButton onClick={interruptCurrentCycle} type="button">
+              <HandPalm size={24} />
+              Interromper
+            </StopCountdownButton>
+
+            {PauseCurrentCycle ? (
+              <PauseCountdownButton onClick={PauseCurrentCycle} type="button">
+                <Pause size={24} />
+                Pause
+              </PauseCountdownButton>
+            ) : (
+              <UnPauseCountdownButton onClick={StartCurrentCycle} type="button">
+                <Play size={24} />
+                Unpause
+              </UnPauseCountdownButton>
+            )}
+          </ButtonsCointainer>
         ) : (
           <StartCountdownButton disabled={isSubmitDisable} type="submit">
             <Play size={24} />

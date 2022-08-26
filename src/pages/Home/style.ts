@@ -86,7 +86,6 @@ export const MinutesAmountInput = styled(BaseInput)`
 `
 
 export const BaseCountdownButton = styled.button`
-  width: 100%;
   border: 0;
   padding: 1rem;
   border-radius: 8px;
@@ -108,6 +107,7 @@ export const BaseCountdownButton = styled.button`
 `
 
 export const StartCountdownButton = styled(BaseCountdownButton)`
+  width: 100%;
   background: ${(props) => props.theme['red-500']};
 
   &:not(:disabled):hover {
@@ -116,9 +116,31 @@ export const StartCountdownButton = styled(BaseCountdownButton)`
 `
 
 export const StopCountdownButton = styled(BaseCountdownButton)`
+  width: 50%;
   background: ${(props) => props.theme['red-500']};
 
   &:not(:disabled):hover {
     background: ${(props) => props.theme['red-700']};
   }
+`
+export const PauseCountdownButton = styled(BaseCountdownButton)`
+  width: 50%;
+  background: ${(props) => props.theme['red-500']};
+
+  &:not(:disabled):hover {
+    background: ${(props) => props.theme['red-700']};
+  }
+`
+export const UnPauseCountdownButton = styled(BaseCountdownButton)`
+  width: 50%;
+  background: ${(props) => props.theme['red-500']};
+
+  &:not(:disabled):hover {
+    background: ${(props) => props.theme['red-700']};
+  }
+`
+
+export const ButtonsCointainer = styled.div`
+  display: flex;
+  width: 100%;
 `
