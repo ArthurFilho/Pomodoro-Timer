@@ -8,9 +8,6 @@ import {
   HomeContainer,
   StartCountdownButton,
   StopCountdownButton,
-  PauseCountdownButton,
-  ButtonsCointainer,
-  UnPauseCountdownButton,
 } from './style'
 import { NewCycleForm } from './components/NewCycleForm'
 import { Countdown } from './components/CountDown'
@@ -31,8 +28,6 @@ export function Home() {
     activeCycle,
     createNewCycle,
     interruptCurrentCycle,
-    PauseCurrentCycle,
-    StartCurrentCycle,
   } = useContext(CyclesContext)
 
   const newCycleForm = useForm<NewCycleFormData>({
@@ -62,24 +57,10 @@ export function Home() {
         <Countdown />
 
         {activeCycle ? (
-          <ButtonsCointainer>
-            <StopCountdownButton onClick={interruptCurrentCycle} type="button">
-              <HandPalm size={24} />
-              Interromper
-            </StopCountdownButton>
-
-            {PauseCurrentCycle ? (
-              <PauseCountdownButton onClick={PauseCurrentCycle} type="button">
-                <Pause size={24} />
-                Pause
-              </PauseCountdownButton>
-            ) : (
-              <UnPauseCountdownButton onClick={StartCurrentCycle} type="button">
-                <Play size={24} />
-                Unpause
-              </UnPauseCountdownButton>
-            )}
-          </ButtonsCointainer>
+          <StopCountdownButton onClick={interruptCurrentCycle} type="button">
+            <HandPalm size={24} />
+            Interromper
+          </StopCountdownButton>
         ) : (
           <StartCountdownButton disabled={isSubmitDisable} type="submit">
             <Play size={24} />

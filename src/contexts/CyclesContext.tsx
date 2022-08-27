@@ -109,14 +109,6 @@ export function CyclesContextProvider({
     dispatch(interruptCurrentCycleAction())
   }
 
-  function PauseCurrentCycle() {
-    dispatch(PauseCurrentCycleAction())
-  }
-
-  function StartCurrentCycle() {
-    dispatch(StartCurrentCycleAction())
-  }
-
   return (
     <CyclesContext.Provider
       value={{
@@ -128,8 +120,6 @@ export function CyclesContextProvider({
         setSecondsPassed,
         createNewCycle,
         interruptCurrentCycle,
-        PauseCurrentCycle,
-        StartCurrentCycle,
       }}
     >
       {children}
