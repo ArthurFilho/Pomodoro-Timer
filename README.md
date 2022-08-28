@@ -17,4 +17,4 @@
 <h1> <a href="https://pomodorotimerp.netlify.app/"> Clique aqui para ver o site em ação </a></h1>
 
 <h1> Descrição </h1>
-<p>  </p>
+<p> Pomodoro Timer é um projeto desenvolvido em React.js & Typescript como linguagens principais, com intuito de simular a tecnica pomodoro, ele foi desenvolvido para ser utilizado em estudos e outras atividades para manter 100% foco. </p>
